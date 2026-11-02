@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | GrowthLens</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        .dashboard {
+            max-width: 1050px;
+            margin: 0 auto;
+            padding: 35px 24px;
+        }
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            border-bottom: 1px solid #e0e5ed;
+            padding-bottom: 22px;
+        }
+        .topbar form button {
+            margin: 0;
+            padding: 10px 16px;
+        }
+        .welcome {
+            padding: 48px 0 28px;
+        }
+        .welcome h1 {
+            color: #172033;
+            font-size: 38px;
+        }
+        .panels {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+        .panel {
+            background: white;
+            border: 1px solid #e1e6ef;
+            border-radius: 14px;
+            padding: 22px;
+        }
+        .panel p {
+            color: #778197;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+        @media (max-width: 700px) {
+            .panels { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <main class="dashboard">
+        <header class="topbar">
+            <div class="brand"><span class="brand-icon">↗</span> GrowthLens</div>
+            <form action="/logout" method="post">
+                <button type="submit">Log out</button>
+            </form>
+        </header>
+
+        <section class="welcome">
+            <p class="eyebrow">YOUR RESEARCH WORKSPACE</p>
+            <h1>Welcome, {{ username }}.</h1>
+            <p class="muted">
+                Investigate the relationship between demographics
+                and economic development across India.
+            </p>
+        </section>
+
+        <section class="panels">
+            <article class="panel">
+                <h3>Regional fertility</h3>
+                <p>Compare fertility rates across states and regions.</p>
+            </article>
+            <article class="panel">
+                <h3>Economic indicators</h3>
+                <p>Explore GDP growth, income and productivity data.</p>
+            </article>
+            <article class="panel">
+                <h3>Research & analysis</h3>
+                <p>Study trends and visualize relationships between variables.</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

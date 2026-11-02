@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in | Fertility & Growth</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <main class="auth-layout">
+        <section class="intro">
+            <div class="brand"><span class="brand-icon">↗</span> GrowthLens</div>
+            <div class="intro-content">
+                <p class="eyebrow">DATA · DEMOGRAPHICS · DEVELOPMENT</p>
+                <h1>Understand the forces shaping India's future.</h1>
+                <p class="intro-text">
+                    Explore fertility trends across Indian regions and
+                    investigate their relationship with economic growth.
+                </p>
+                <div class="stat-row">
+                    <div><strong>28+</strong><span>States to explore</span></div>
+                    <div><strong>01</strong><span>Unified dashboard</span></div>
+                </div>
+                <p class="fine-print">
+                    An academic data analysis project.
+                </p>
+            </div>
+        </section>
+
+        <section class="form-side">
+            <div class="form-card">
+                <p class="eyebrow">WELCOME BACK</p>
+                <h2>Sign in to your account</h2>
+                <p class="muted">Continue exploring India's demographic data.</p>
+
+                {% if registered %}
+                    <div class="success">Account created. You can sign in now.</div>
+                {% endif %}
+
+                {% if error %}
+                    <div class="error">{{ error }}</div>
+                {% endif %}
+
+                <form action="/login" method="post">
+                    <label for="username">Username or email</label>
+                    <input id="username" name="username"
+                           type="text" placeholder="you@example.com"
+                           autocomplete="username" required>
+
+                    <label for="password">Password</label>
+                    <input id="password" name="password"
+                           type="password" placeholder="Enter your password"
+                           autocomplete="current-password" required>
+
+                    <button type="submit">Sign in <span>→</span></button>
+                </form>
+
+                <p class="switch">
+                    New to GrowthLens?
+                    <a href="/register">Create an account</a>
+                </p>
+                <p class="fine-print center">Built for research and learning.</p>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

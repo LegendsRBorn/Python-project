@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create account | GrowthLens</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="register-body">
+    <section class="form-card register-card">
+        <a class="back-link" href="/login">← Back to sign in</a>
+        <p class="eyebrow">JOIN GROWTHLENS</p>
+        <h2>Create your account</h2>
+        <p class="muted">Set up your account to access the research dashboard.</p>
+
+        {% if error %}
+            <div class="error">{{ error }}</div>
+        {% endif %}
+
+        <form action="/register" method="post">
+            <label for="username">Username</label>
+            <input id="username" name="username" type="text"
+                   maxlength="100" autocomplete="username" required>
+
+            <label for="email">Email address</label>
+            <input id="email" name="email" type="email"
+                   maxlength="255" autocomplete="email" required>
+
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password"
+                   minlength="10" maxlength="128"
+                   autocomplete="new-password" required>
+
+            <button type="submit">Create account <span>→</span></button>
+        </form>
+
+        <p class="switch">
+            Already registered? <a href="/login">Sign in</a>
+        </p>
+    </section>
+</body>
+</html>
